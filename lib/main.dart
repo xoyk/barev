@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
                 const Text(
                   'բաժակ',
                   style: TextStyle(
-                      fontSize: 16
+                      fontSize: 21
                   ),
                 )
               ],
@@ -89,8 +89,32 @@ class MyApp extends StatelessWidget {
     );
 
     Widget checkButton = Container(
-      padding: const EdgeInsets.all(50),
-      child: const Text('Button'),
+      margin: const EdgeInsets.symmetric(vertical: 16),
+      padding: const EdgeInsets.symmetric(vertical: 14.5),
+      decoration: BoxDecoration(
+          border: Border.all(
+              color: Colors.grey
+          ),
+          borderRadius: BorderRadius.circular(16),
+          // color: Colors.red
+      ),
+      child:
+        Row(
+          children: const [
+            Expanded(
+              child:
+                Text(
+                  'Далее',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Color.fromARGB(255, 18, 18, 18),
+                  ),
+                ),
+            ),
+          ],
+        ),
+
     );
 
     return MaterialApp(
@@ -138,74 +162,99 @@ class Cards extends StatefulWidget {
 }
 
 class _CardsState extends State<Cards> {
+
   final List<Map> _cards = [
     {
-      'word': 'Кружка',
-      "image": "001",
+      'trans': 'Стакан',
+      'original': 'բաժաք',
+      "image": "bajak",
       "id": 1
     },
     {
       'id': 2,
-      'word': 'Девочка',
-      "image": "002"
+      'trans': 'Девочка',
+      'original': 'աղջիկ',
+      "image": "aghjik"
     },
     {
       'id': 3,
-      'word': 'Клубника',
-      "image": "002"
+      'trans': 'Клубника',
+      'original': 'ելաք',
+      "image": "elak"
     },
     {
       'id': 4,
-      'word': 'Стакан',
-      "image": "002"
+      'trans': 'Мальчик',
+      'original': 'տղա',
+      "image": "tgha"
     },
   ];
 
+  int _selected = -1;
+
   @override
   Widget build(BuildContext context) {
-    Container card(id) {
+
+    Container card(id, selected) {
       return Container(
-          padding: const EdgeInsets.all(30),
+          padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.red,
-            border: Border.all(
-                color: const Color.fromRGBO(18, 18, 18, 100),
-                width: 2
-            ),
-            borderRadius: const BorderRadius.all(
-                Radius.circular(8.0)
-            ),
+            color: Colors.white,
+            border:
+              Border.all(
+                  color: const Color.fromRGBO(18, 18, 18, 100),
+                  width: 1
+              ),
+            borderRadius: BorderRadius.circular(16.0),
+            boxShadow: _selected == id ? const [
+              BoxShadow(
+                color: Colors.black,
+                offset: Offset(0, 6.0)
+              )
+            ] : null
           ),
           child:
-          Expanded(
-            flex: 1,
-            child: Column(
-              children: [
-                Image.asset(
-                  'images/girl.jpeg',
-                  // width: 600,
-                  // height: 240,
-                  fit: BoxFit.fitHeight
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  _selected = id;
+                });
+              },
+              child: Expanded(
+                flex: 1,
+                child:
+                Column(
+                  children: [
+                    Image.asset(
+                        'images/${_cards[id]['image']}.jpeg',
+                        fit: BoxFit.contain
+                    ),
+                    Text(
+                      _cards[id]['trans'],
+                      style: const TextStyle(
+                          fontSize: 14
+                      ),
+                    )
+                  ],
                 ),
-                Text(_cards[id]['word'])
-              ],
+              ),
             ),
-          )
       );
     }
 
     return
       Container(
-        color: Colors.yellow,
+        // color: Colors.yellow,
         child: GridView.count(
           crossAxisCount: 2,
           mainAxisSpacing: 24,
           crossAxisSpacing: 12,
+          childAspectRatio: 0.9,
           children: [
-            card(0),
-            card(1),
-            card(2),
-            card(2),
+            card(0, false),
+            card(1, false),
+            card(2, true),
+            card(3, false),
           ],
         )
       );
