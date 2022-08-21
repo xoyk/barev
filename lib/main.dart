@@ -3,23 +3,26 @@
 // found in the LICENSE file.
 
 import 'package:barev/config/themes.dart';
-import 'package:barev/pages/home.dart';
+import 'package:barev/pages/cards.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+      const BarevDzes()
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class BarevDzes extends StatelessWidget {
+  const BarevDzes({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final theme = AppTheme.light();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'BarevDzes',
-      theme: appTheme,
-      home: const HomePage()
+      theme: theme,
+      home: const CardsPage()
     );
   }
 }

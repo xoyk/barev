@@ -1,4 +1,5 @@
 import 'package:barev/components/progressbar.dart';
+import 'package:barev/utils/methods.dart';
 import 'package:flutter/material.dart';
 
 class TopBar extends StatelessWidget {
@@ -10,10 +11,15 @@ class TopBar extends StatelessWidget {
       margin: const EdgeInsets.only(left: 12, right: 24, bottom: 24),
       height: 48,
       child: Row(
-        children: const [
-          CloseButton(),
-          Expanded(
-              child: ProgressBar()
+        children: [
+          GestureDetector(
+              onTap: () {
+                goHome(context: context);
+              },
+              child: const CloseButton()
+          ),
+          const Expanded(
+              child: ProgressBar(valueBar: 0.3)
           ),
         ],
       ),

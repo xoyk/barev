@@ -2,7 +2,9 @@ import 'package:barev/config/const.dart';
 import 'package:flutter/material.dart';
 
 class ProgressBar extends StatefulWidget {
-  const ProgressBar({Key? key}) : super(key: key);
+  const ProgressBar({Key? key, required valueBar}) : super(key: key);
+
+  get valueBar => 0.5;
 
   @override
   State<ProgressBar> createState() => _ProgressBarState();
@@ -24,10 +26,10 @@ class _ProgressBarState extends State<ProgressBar> {
       ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child:
-        const LinearProgressIndicator
+        LinearProgressIndicator
           (
           color: kViolet,
-          value: 0.1,
+          value: widget.valueBar,
           minHeight: 8,
           backgroundColor: Colors.transparent,
         ),

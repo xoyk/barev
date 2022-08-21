@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 
 class Problem extends StatelessWidget {
@@ -19,17 +18,11 @@ class Problem extends StatelessWidget {
           children: [
             Text(
               'Выберите правильное изображение',
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.black.withOpacity(0.4),
-                fontWeight: FontWeight.w600,
-              ),
+              style: Theme.of(context).textTheme.bodyText1
             ),
             Text(
               'բաժակ',
-              style: GoogleFonts.notoSansArmenian(
-                  fontSize: 25,
-              ),
+              style: Theme.of(context).textTheme.headline2
             )
           ],
         ),

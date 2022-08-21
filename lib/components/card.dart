@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class CardTile extends StatefulWidget {
   const CardTile({
     Key? key,
-    required this.word,
+    required this.word, selected=false,
   }) : super(key: key);
 
   final Word word;
