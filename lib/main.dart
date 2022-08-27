@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:barev/config/themes.dart';
-import 'package:barev/pages/cards.dart';
+import 'package:barev/pages/flow.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,7 +22,7 @@ class BarevDzes extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'BarevDzes',
       theme: theme,
-      home: const CardsPage()
+      home: const FlowPage()
     );
   }
 }

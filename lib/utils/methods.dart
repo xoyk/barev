@@ -9,7 +9,3 @@ startLesson({required BuildContext context}) {
 goHome({required BuildContext context}) {
   Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
 }
-
-generateLessonSet(){
-  return ['Cards', 'Cards', 'Constructor'];
-}
