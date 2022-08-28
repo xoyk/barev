@@ -92,10 +92,10 @@ class Cards extends StatelessWidget {
                       crossAxisSpacing: 10,
                       shrinkWrap: true,
                       children: [
-                        Card(words[1].translation),
-                        Card(words[0].translation),
-                        Card(words[3].translation),
-                        Card(words[2].translation),
+                        Card(words[1]),
+                        Card(words[0]),
+                        Card(words[3]),
+                        Card(words[2]),
                       ],
                   )
                 ],
@@ -104,7 +104,7 @@ class Cards extends StatelessWidget {
     );
   }
 
-  Container Card(text) => Container(
+  Container Card(word) => Container(
       padding: EdgeInsets.all(16),
       margin: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
@@ -115,7 +115,17 @@ class Cards extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.0),
       ),
       // color: Colors.red,
-      child: Text(text)
+      child:
+        Column(
+          children: [
+            Image.asset(
+                'assets/images/${word.image}.png',
+                height: 90,
+                fit: BoxFit.fitWidth
+            ),
+            Text(word.translation)
+          ],
+        )
   );
 }
 
