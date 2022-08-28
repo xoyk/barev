@@ -86,71 +86,22 @@ class Cards extends StatelessWidget {
             Container(
               child: Column(
                 children: [
-                  Card(words[1].translation),
-                  Card(words[0].translation),
-                  Card(words[3].translation),
-                  Card(words[2].translation),
+                  GridView.count(
+                      padding: EdgeInsets.all(36),
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      shrinkWrap: true,
+                      children: [
+                        Card(words[1].translation),
+                        Card(words[0].translation),
+                        Card(words[3].translation),
+                        Card(words[2].translation),
+                      ],
+                  )
                 ],
               ),
             )
     );
-    //   GridView(
-    //     gridDelegate:
-    //       const SliverGridDelegateWithFixedCrossAxisCount(
-    //         crossAxisCount: 2,
-    //         mainAxisSpacing: 24,
-    //         crossAxisSpacing: 12,
-    //       ),
-    //   primary: false,
-    //   padding: const EdgeInsets.all(20),
-    //   children: <Widget>[
-    //     GestureDetector(
-    //       onTap: () {
-    //         print('clicked!');
-    //       },
-    //       child: Container(
-    //         padding: const EdgeInsets.all(8),
-    //         height: 500,
-    //         color: Colors.blue[400],
-    //         child:
-    //         Text(
-    //           'sdflsfsf'
-    //           // _active_words[0].translation
-    //         ),
-    //       ),
-    //     ),
-    //     Container(
-    //       padding: const EdgeInsets.all(8),
-    //       height: 500,
-    //       color: Colors.teal[800],
-    //       child:
-    //         Text(
-    //             'sdflsfsf'
-    //             // _active_words[1].translation
-    //         ),
-    //     ),
-    //     Container(
-    //       padding: const EdgeInsets.all(8),
-    //       height: 500,
-    //       color: Colors.red[200],
-    //       child:
-    //       Text(
-    //           'sdflsfsf'
-    //           // _active_words[2].translation
-    //       ),
-    //     ),
-    //     Container(
-    //       padding: const EdgeInsets.all(8),
-    //       height: 500,
-    //       color: Colors.purple[200],
-    //       child:
-    //       Text(
-    //           'sdflsfsf'
-    //           // _active_words[3].translation
-    //       ),
-    //     ),
-    //   ],
-    // );
   }
 
   Container Card(text) => Container(
