@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import '../data/steps.dart';
 
@@ -23,7 +22,7 @@ class _LessonPageState extends State<LessonPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    var resultx = Container(
       height: 500,
       color: steps[currentStep].color,
       child: GridView(
@@ -34,12 +33,18 @@ class _LessonPageState extends State<LessonPage> {
         primary: false,
         padding: const EdgeInsets.all(20),
         children: <Widget>[
-          Container(
-            padding: const EdgeInsets.all(8),
-            height: 500,
-            color: Colors.orange[200],
-            child:
-              Text("Task ${steps[currentStep].name}"),
+          GestureDetector(
+            onTap: () {
+              print('Clicked!!');
+              print('Currenst step is !!' + currentStep.toString());
+            },
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              height: 500,
+              color: Colors.orange[200],
+              child:
+                Text("Task ${steps[currentStep].name}"),
+            ),
           ),
           Container(
             padding: const EdgeInsets.all(8),
@@ -65,5 +70,10 @@ class _LessonPageState extends State<LessonPage> {
         ],
       ),
     );
+
+    return resultx;
+    // return PickPic01();
+
+    // return resultx ? PickPic01()
   }
 }

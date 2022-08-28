@@ -1,4 +1,4 @@
-import 'package:barev/pages/lesson.dart';
+import 'package:barev/games/PickPic01.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -14,20 +14,12 @@ class _FlowPageState extends State<FlowPage> {
   // List<Step> _current_step = [];
   // final StepSlide currentStep = <StepSlide>;
   static List<Widget> steps = <Widget>[
-    const LessonPage(),
-    const LessonPage(),
-    const LessonPage(),
-    const LessonPage(),
-    const LessonPage(),
-    const LessonPage(),
-    const LessonPage(),
-    const LessonPage(),
-    const LessonPage(),
-    const LessonPage(),
-    const LessonPage(),
-    const LessonPage(),
-    const LessonPage(),
-    const LessonPage(),
+    //const LessonPage(),
+    const PickPic01(),
+    const PickPic01(),
+    const PickPic01(),
+    const PickPic01(),
+    const PickPic01(),
   ];
 
   @override
@@ -59,11 +51,12 @@ class _FlowPageState extends State<FlowPage> {
         SafeArea(
           child:
             ListView.builder(
-              itemCount: 50,
-              //itemCount:  _active_cards.length * 300,
+              itemCount: 25,
+              // itemCount:  steps.length,
               itemBuilder: (BuildContext context, int index) {
                 var rand = Random();
-                return steps[rand.nextInt(steps.length-1)];
+                var randIndex = rand.nextInt(steps.length-1);
+                return steps[randIndex];
               },
             ),
           ),
@@ -93,4 +86,3 @@ class _FlowPageState extends State<FlowPage> {
     );
   }
 }
-

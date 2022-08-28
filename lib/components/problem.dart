@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 
 
-class Problem extends StatelessWidget {
-  const Problem({Key? key}) : super(key: key);
+class Problem extends StatefulWidget {
+  final String answer;
+
+  Problem({Key? key, required this.answer}) : super(key: key);
+
+  @override
+  State<Problem> createState() => _ProblemState();
+}
+
+class _ProblemState extends State<Problem> {
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +29,7 @@ class Problem extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyText1
             ),
             Text(
-              'բաժակ',
+              widget.answer,
               style: Theme.of(context).textTheme.headline2
             )
           ],
