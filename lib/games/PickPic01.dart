@@ -1,7 +1,7 @@
 import 'package:barev/components/problem.dart';
 import 'package:barev/data/words.dart';
 import 'package:flutter/material.dart';
-
+import 'package:barev/components/card.dart';
 import '../models/word.dart';
 
 class PickPic01 extends StatefulWidget {
@@ -90,12 +90,13 @@ class Cards extends StatelessWidget {
                       padding: EdgeInsets.all(36),
                       crossAxisCount: 2,
                       crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
                       shrinkWrap: true,
                       children: [
-                        Card(words[1]),
-                        Card(words[0]),
-                        Card(words[3]),
-                        Card(words[2]),
+                        Card4(word: words[1]),
+                        Card4(word: words[0]),
+                        Card4(word: words[3]),
+                        Card4(word: words[2]),
                       ],
                   )
                 ],
@@ -103,29 +104,5 @@ class Cards extends StatelessWidget {
             )
     );
   }
-
-  Container Card(word) => Container(
-      padding: EdgeInsets.all(16),
-      margin: EdgeInsets.only(bottom: 10),
-      decoration: BoxDecoration(
-        border: Border.all(
-            color: const Color.fromRGBO(18, 18, 18, 100),
-            width: 1
-        ),
-        borderRadius: BorderRadius.circular(16.0),
-      ),
-      // color: Colors.red,
-      child:
-        Column(
-          children: [
-            Image.asset(
-                'assets/images/${word.image}.png',
-                height: 90,
-                fit: BoxFit.fitWidth
-            ),
-            Text(word.translation)
-          ],
-        )
-  );
 }
 
