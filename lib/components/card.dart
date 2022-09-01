@@ -1,4 +1,5 @@
 
+import 'package:barev/config/themes.dart';
 import 'package:flutter/material.dart';
 
 import '../models/word.dart';
@@ -23,23 +24,21 @@ class _Card4State extends State<Card4> {
 
     // проверяем, есть ли текущий элемент в сохраненных в _saved
     final alreadySelected = _selected.contains(widget.word);
-    print(_selected);
-
     return Container(
       padding: EdgeInsets.all(16),
       // margin: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
           border: Border.all(
               color: const Color.fromRGBO(18, 18, 18, 100),
-              width: alreadySelected == true ? 3 : 1
           ),
           borderRadius: BorderRadius.circular(16.0),
-          // boxShadow: _selected == false ? const [
-          //   BoxShadow(
-          //       color: Colors.black,
-          //       offset: Offset(0, 12.0)
-          //   )
-          // ] : null
+          color: Colors.white,
+          boxShadow: alreadySelected == true ? const [
+            BoxShadow(
+                color: Colors.black,
+                offset: Offset(0, 6.0)
+            )
+          ] : null
       ),
         // color: Colors.red,
       child:
@@ -55,17 +54,24 @@ class _Card4State extends State<Card4> {
               }
             });
           },
-          child: Column(
-            children: [
-              Image.asset(
-                  'assets/images/${widget.word.image}.png',
-                  height: 90,
-                  fit: BoxFit.fitWidth
-              ),
-              Text(widget.word.translation)
-            ],
-          ),
-        )
+          child:
+            Column(
+              children: [
+                Expanded(
+                  child:
+                  Image.asset(
+                      'assets/images/${widget.word.image}.png',
+                      fit: BoxFit.cover
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  widget.word.translation,
+                  style: AppTheme.lightTextTheme.bodyText1,
+                )
+              ],
+            ),
+      )
     );
   }
 }
