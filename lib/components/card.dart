@@ -17,61 +17,32 @@ class Card4 extends StatefulWidget {
 }
 
 class _Card4State extends State<Card4> {
-  List<Word> _selected = [];
-
   @override
   Widget build(BuildContext context) {
-
     // проверяем, есть ли текущий элемент в сохраненных в _saved
-    final alreadySelected = _selected.contains(widget.word);
+    // final alreadySelected = _selected.contains(widget.word);
     return Container(
-      padding: EdgeInsets.all(16),
-      // margin: EdgeInsets.only(bottom: 10),
+      height: 200,
       decoration: BoxDecoration(
-          border: Border.all(
-              color: const Color.fromRGBO(18, 18, 18, 100),
-          ),
-          borderRadius: BorderRadius.circular(16.0),
-          color: Colors.white,
-          boxShadow: alreadySelected == true ? const [
-            BoxShadow(
-                color: Colors.black,
-                offset: Offset(0, 6.0)
-            )
-          ] : null
+        border: Border.all(
+          color: const Color.fromRGBO(18, 18, 18, 100),
+        ),
+        borderRadius: BorderRadius.circular(16.0),
       ),
-        // color: Colors.red,
-      child:
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              if(alreadySelected){
-                _selected.remove(widget.word);
-              } else {
-                _selected.clear();
-                print(widget.word.translation);
-                _selected.add(widget.word);
-              }
-            });
-          },
-          child:
-            Column(
-              children: [
-                Expanded(
-                  child:
-                  Image.asset(
-                      'assets/images/${widget.word.image}.png',
-                      fit: BoxFit.cover
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  widget.word.translation,
-                  style: AppTheme.lightTextTheme.bodyText1,
-                )
-              ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/images/${widget.word.image}.png',
             ),
-      )
+            Text(
+                widget.word.translation,
+                style: Theme.of(context).textTheme.bodyText1,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

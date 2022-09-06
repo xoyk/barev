@@ -17,7 +17,7 @@ class BarevDzes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppTheme.light();
+    final theme = BarevTheme.light();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'BarevDzes',

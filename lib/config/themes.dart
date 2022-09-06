@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AppTheme {
+class BarevTheme {
   static TextTheme lightTextTheme = TextTheme(
     bodyText1: GoogleFonts.openSans(
       fontSize: 14.0,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.normal,
       color: Colors.black,
     ),
     headline1: GoogleFonts.openSans(

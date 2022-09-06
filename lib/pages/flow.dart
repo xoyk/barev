@@ -52,7 +52,7 @@ class _FlowPageState extends State<FlowPage> {
         SafeArea(
           child:
             ListView.builder(
-              itemCount: 25,
+              itemCount: 10,
               // itemCount:  steps.length,
               itemBuilder: (BuildContext context, int index) {
                 var rand = Random();
@@ -75,7 +75,6 @@ class _FlowPageState extends State<FlowPage> {
 
     return
       Container(
-      height: 500,
       decoration: BoxDecoration(
           // color: Color.fromRGBO(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256), 100),
           border: Border.all(

@@ -35,16 +35,19 @@ class _PickPic01State extends State<PickPic01> {
   Widget build(BuildContext context) {
     _active_words.shuffle();
 
-    return Container(
-      color: Colors.indigoAccent[600],
-      height: 500,
-      child:
-        Column(
-          children: [
-            Problem(answer: _active_words[0].original),
-            Cards(words: _active_words),
-          ],
-        ),
+    return Center(
+      child: Container(
+        color: Colors.indigoAccent[600],
+        margin: EdgeInsets.only(bottom: 30),
+        child:
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Problem(answer: _active_words[0].original),
+              Cards(words: _active_words),
+            ],
+          ),
+      ),
     );
   }
 }

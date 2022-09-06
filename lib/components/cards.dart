@@ -18,30 +18,39 @@ class Cards extends StatefulWidget {
 }
 
 class _CardsState extends State<Cards> {
-  final _saved = <Word>{};
-
   @override
   Widget build(BuildContext context) {
 
     widget.words.shuffle();
 
     return Column(
-      children: [
-        GridView.count(
-          physics: const NeverScrollableScrollPhysics(),
-          padding: const EdgeInsets.all(36),
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          shrinkWrap: true,
-          children: [
-            Card4(word: widget.words[1]),
-            Card4(word: widget.words[0]),
-            Card4(word: widget.words[3]),
-            Card4(word: widget.words[2]),
-          ],
-        )
-      ],
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Card4(word: widget.words[1]),
+              const SizedBox(
+                width: 12,
+              ),
+              Card4(word: widget.words[0]),
+            ],
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Card4(word: widget.words[3]),
+              const SizedBox(
+                width: 12,
+              ),
+              Card4(word: widget.words[2]),
+            ],
+          )
+        ],
     );
   }
 }
