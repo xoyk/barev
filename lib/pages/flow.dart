@@ -39,14 +39,28 @@ class _FlowPageState extends State<FlowPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text('Barev dzes!'),
-        actions: [
-          IconButton(
-              onPressed: some(),
-              icon: const Icon(Icons.list)
-          )
-        ],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(66),
+        child: Container(
+          margin: EdgeInsets.only(top: 4, left: 12, right: 12),
+          child: AppBar(
+            title: const Text('Barev dzes!'),
+            elevation: 0.2,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(32.0))
+            ),
+            backgroundColor: Colors.black,
+            foregroundColor: Colors.white,
+            actions: [
+              IconButton(
+                  onPressed: some(),
+                  icon: const Icon(Icons.check_circle_outline_sharp),
+                  color: Colors.green,
+
+              )
+            ],
+          ),
+        ),
       ),
       body:
         SafeArea(
