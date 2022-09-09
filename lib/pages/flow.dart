@@ -11,8 +11,6 @@ class FlowPage extends StatefulWidget {
 
 class _FlowPageState extends State<FlowPage> {
 
-  // List<Step> _current_step = [];
-  // final StepSlide currentStep = <StepSlide>;
   static List<Widget> steps = <Widget>[
     //const LessonPage(),
     const PickPic01(),
@@ -24,15 +22,7 @@ class _FlowPageState extends State<FlowPage> {
 
   @override
   void initState() {
-    // TODO save generated levels to history
-    // TODO pick one step slide
     super.initState();
-  }
-
-  // TODO Get user data of known and unknown words
-
-  some() {
-
   }
 
   @override
@@ -40,25 +30,18 @@ class _FlowPageState extends State<FlowPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(66),
+        preferredSize: const Size.fromHeight(66),
         child: Container(
-          margin: EdgeInsets.only(top: 4, left: 12, right: 12),
+          margin: const EdgeInsets.only(top: 4, left: 12, right: 12),
           child: AppBar(
             title: const Text('Barev dzes!'),
             elevation: 0.2,
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(32.0))
             ),
             backgroundColor: Colors.black,
             foregroundColor: Colors.white,
-            actions: [
-              IconButton(
-                  onPressed: some(),
-                  icon: const Icon(Icons.check_circle_outline_sharp),
-                  color: Colors.green,
-
-              )
-            ],
+            actions: const [],
           ),
         ),
       ),
