@@ -27,38 +27,37 @@ class _FlowPageState extends State<FlowPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(66),
-        child: Container(
-          margin: const EdgeInsets.only(top: 4, left: 12, right: 12),
-          child: AppBar(
-            title: const Text('Barev dzes!'),
-            elevation: 0.2,
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(32.0))
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(66),
+          child: Container(
+            margin: const EdgeInsets.only(top: 4, left: 12, right: 12),
+            child: AppBar(
+              title: const Text('Barev dzes!'),
+              elevation: 0.2,
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(32.0))
+              ),
+              backgroundColor: Colors.black,
+              foregroundColor: Colors.white,
+              actions: const [],
             ),
-            backgroundColor: Colors.black,
-            foregroundColor: Colors.white,
-            actions: const [],
           ),
         ),
-      ),
-      body:
-        SafeArea(
-          child:
-            ListView.builder(
-              itemCount: 10,
-              // itemCount:  steps.length,
-              itemBuilder: (BuildContext context, int index) {
-                var rand = Random();
-                var randIndex = rand.nextInt(steps.length-1);
-                return steps[randIndex];
-              },
+        body:
+              ListView.builder(
+                itemCount: 10,
+                // itemCount:  steps.length,
+                itemBuilder: (BuildContext context, int index) {
+                  var rand = Random();
+                  var randIndex = rand.nextInt(steps.length-1);
+                  return steps[randIndex];
+                },
+              ),
             ),
-          ),
-      );
+    );
   }
 
 
