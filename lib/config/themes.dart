@@ -1,3 +1,4 @@
+import 'package:barev/config/const.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -6,27 +7,32 @@ class BarevTheme {
     bodyText1: GoogleFonts.openSans(
       fontSize: 14.0,
       fontWeight: FontWeight.normal,
-      color: Colors.black,
+      color: kGray,
+    ),
+    bodyText2: GoogleFonts.openSans(
+      fontSize: 14.0,
+      fontWeight: FontWeight.normal,
+      color: kGray,
     ),
     headline1: GoogleFonts.openSans(
       fontSize: 32.0,
       fontWeight: FontWeight.bold,
-      color: Colors.black,
+      color: kGray,
     ),
     headline2: GoogleFonts.openSans(
-      fontSize: 21.0,
-      fontWeight: FontWeight.w700,
-      color: Colors.black,
+      fontSize: 16.0,
+      fontWeight: FontWeight.w400,
+      color: kGray,
     ),
     headline3: GoogleFonts.openSans(
       fontSize: 16.0,
       fontWeight: FontWeight.w600,
-      color: Colors.black,
+      color: kGray,
     ),
     headline6: GoogleFonts.openSans(
       fontSize: 20.0,
       fontWeight: FontWeight.w600,
-      color: Colors.black,
+      color: kGray,
     ),
   );
 
@@ -34,6 +40,11 @@ class BarevTheme {
     bodyText1: GoogleFonts.openSans(
       fontSize: 14.0,
       fontWeight: FontWeight.w700,
+      color: Colors.white,
+    ),
+    bodyText2: GoogleFonts.openSans(
+      fontSize: 14.0,
+      fontWeight: FontWeight.normal,
       color: Colors.white,
     ),
     headline1: GoogleFonts.openSans(

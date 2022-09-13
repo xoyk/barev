@@ -7,7 +7,8 @@ class Word {
   final String translation;
   final String original;
   final String image;
+  final String transcript;
 
-  Word({required this.original, required this.translation, required this.image});
+  Word({required this.original, required this.translation, required this.image, required this.transcript});
 
 }

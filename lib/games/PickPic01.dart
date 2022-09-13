@@ -67,9 +67,12 @@ class _PickPic01State extends State<PickPic01> {
                     Container(
                       padding: const EdgeInsets.all(6.0),
                       margin: const EdgeInsets.only(top: 6),
-                      child: const Text(
-                          'some shit',
-                          style: TextStyle(
+                      child: Text(
+                          cardManager001.cardState == 'neutral' ? '' : (cardManager001.rightAnswer == cardManager001.selectedCard ?
+                            'Правильно, ${activeWords[rightAnswer].original} (${activeWords[rightAnswer].transcript}) это ${activeWords[rightAnswer].translation}'  :
+                            'Нет, ${activeWords[cardManager001.selectedCard].translation} это ${activeWords[cardManager001.selectedCard].original} (${activeWords[cardManager001.selectedCard].transcript}). ${activeWords[rightAnswer].original} (${activeWords[rightAnswer].transcript}) это ${activeWords[rightAnswer].translation}'
+                          ),
+                          style: const TextStyle(
                             fontSize: 14.0,
                           )
                       ),
