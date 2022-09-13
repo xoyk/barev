@@ -1,3 +1,4 @@
+import 'package:barev/config/const.dart';
 import 'package:barev/games/PickPic01.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
@@ -40,23 +41,23 @@ class _FlowPageState extends State<FlowPage> {
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(32.0))
               ),
-              backgroundColor: Colors.black,
+              backgroundColor: kGray,
               foregroundColor: Colors.white,
               actions: const [],
             ),
           ),
         ),
         body:
-              ListView.builder(
-                itemCount: 10,
-                // itemCount:  steps.length,
-                itemBuilder: (BuildContext context, int index) {
-                  var rand = Random();
-                  var randIndex = rand.nextInt(steps.length-1);
-                  return steps[randIndex];
-                },
-              ),
-            ),
+        ListView.builder(
+          itemCount: 10,
+          // itemCount:  steps.length,
+          itemBuilder: (BuildContext context, int index) {
+            var rand = Random();
+            var randIndex = rand.nextInt(steps.length-1);
+            return steps[randIndex];
+          },
+        ),
+      ),
     );
   }
 

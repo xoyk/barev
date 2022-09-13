@@ -1,10 +1,8 @@
-// Copyright 2018 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:barev/config/themes.dart';
 import 'package:barev/pages/flow.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'models/models.dart';
 
 void main() {
   runApp(
@@ -22,7 +20,12 @@ class BarevDzes extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'BarevDzes',
       theme: theme,
-      home: const FlowPage()
+      home: MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (context) => CardManager001())
+          ],
+          child: const FlowPage()
+      )
     );
   }
 }

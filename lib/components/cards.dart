@@ -1,16 +1,17 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:barev/models/models.dart';
 
 import '../models/word.dart';
 import 'card.dart';
 
 class Cards extends StatefulWidget {
   final List<Word> words;
+  final CardManager001 manager;
 
   const Cards({
     Key? key,
-    required this.words
+    required this.words,
+    required this.manager,
   }) : super(key: key);
 
   @override
@@ -20,9 +21,6 @@ class Cards extends StatefulWidget {
 class _CardsState extends State<Cards> {
   @override
   Widget build(BuildContext context) {
-
-    widget.words.shuffle();
-
     return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,11 +28,11 @@ class _CardsState extends State<Cards> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card4(word: widget.words[1]),
+              buildCard(widget.words[1], 1),
               const SizedBox(
                 width: 12,
               ),
-              Card4(word: widget.words[0]),
+              buildCard(widget.words[0], 0),
             ],
           ),
           const SizedBox(
@@ -43,14 +41,29 @@ class _CardsState extends State<Cards> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card4(word: widget.words[3]),
+              buildCard(widget.words[3], 3),
               const SizedBox(
                 width: 12,
               ),
-              Card4(word: widget.words[2]),
+              buildCard(widget.words[2], 2),
             ],
           )
         ],
+    );
+  }
+
+  Widget buildCard(word, index) {
+    return InkWell(
+      onTap: () {
+        widget.manager.selectCard(index);
+      },
+      highlightColor: Colors.blue.withOpacity(0.4),
+      splashColor: Colors.grey.withOpacity(0.5),
+      child:
+      Card4(
+          word: word,
+          isSelected: widget.manager.selectedCard == index
+      ),
     );
   }
 }

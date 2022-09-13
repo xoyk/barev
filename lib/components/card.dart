@@ -1,15 +1,16 @@
-
-import 'package:barev/config/themes.dart';
 import 'package:flutter/material.dart';
-
 import '../models/word.dart';
+import '../config/const.dart';
 
 class Card4 extends StatefulWidget {
   final Word word;
+  final bool isSelected;
+  final Function(int?)? onSelect;
 
   const Card4({
     Key? key,
-    required this.word
+    required this.word,
+    this.isSelected = false, this.onSelect
   }) : super(key: key);
 
   @override
@@ -19,13 +20,28 @@ class Card4 extends StatefulWidget {
 class _Card4State extends State<Card4> {
   @override
   Widget build(BuildContext context) {
-    // проверяем, есть ли текущий элемент в сохраненных в _saved
-    // final alreadySelected = _selected.contains(widget.word);
     return Container(
       height: 200,
       decoration: BoxDecoration(
+        boxShadow: widget.isSelected ? const [
+          BoxShadow(
+            color: kGray,
+            offset: Offset(
+              0.0,
+              6.0,
+            ),
+            blurRadius: 0.0,
+            spreadRadius: 0.0,
+          ),
+          BoxShadow(
+            color: Colors.white,
+            offset: Offset(0.0, 0.0),
+            blurRadius: 0.0,
+            spreadRadius: 0.0,
+          ), //BoxSh//
+        ] : null,
         border: Border.all(
-          color: const Color.fromRGBO(18, 18, 18, 100),
+          color: kGray,
         ),
         borderRadius: BorderRadius.circular(16.0),
       ),
