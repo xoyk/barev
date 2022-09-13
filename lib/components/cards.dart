@@ -52,7 +52,7 @@ class _CardsState extends State<Cards> {
     );
   }
 
-  Widget buildCard(word, index) {
+  Widget buildCard(Word word, index) {
     return InkWell(
       onTap: () {
         widget.manager.selectCard(index);
@@ -61,7 +61,8 @@ class _CardsState extends State<Cards> {
       splashColor: Colors.grey.withOpacity(0.5),
       child:
       Card4(
-          word: word,
+          title: word.original,
+          image: word.image,
           isSelected: widget.manager.selectedCard == index
       ),
     );

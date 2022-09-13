@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:barev/components/problem.dart';
 import 'package:barev/data/words.dart';
 import 'package:flutter/material.dart';
@@ -15,19 +17,20 @@ class PickPic01 extends StatefulWidget {
 
 class _PickPic01State extends State<PickPic01> {
 
-  final List<Word> _active_words = [];
+  List<Word> activeWords = [];
+  int rightAnswer = 0;
 
   @override
   void initState() {
 
     words.shuffle();
 
-    // TODO refactor to while(i < 4)
-    for(var i in words){
-      if(_active_words.length < 4) {
-        _active_words.add(words[_active_words.length]);
-      }
-    }
+    activeWords = words.sublist(0, 4);
+
+    final rand = Random();
+    rightAnswer = rand.nextInt(activeWords.length-1);
+
+    super.initState();
 
     // TODO pick right answer
     super.initState();
@@ -35,7 +38,6 @@ class _PickPic01State extends State<PickPic01> {
 
   @override
   Widget build(BuildContext context) {
-    _active_words.shuffle();
     return Center(
       child: Container(
         color: Colors.indigoAccent[600],
@@ -44,12 +46,12 @@ class _PickPic01State extends State<PickPic01> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Problem(answer: _active_words[0].original),
+            Problem(answer: activeWords[rightAnswer].original),
             Consumer<CardManager001>(
               builder: (
               BuildContext context, cardManager001, Widget? child
               ) {
-                return Cards(words: _active_words, manager: cardManager001);
+                return Cards(words: activeWords, manager: cardManager001);
             })
           ],
         ),

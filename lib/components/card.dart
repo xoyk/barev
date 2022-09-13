@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import '../models/word.dart';
 import '../config/const.dart';
 
 class Card4 extends StatefulWidget {
-  final Word word;
+  final String title;
+  final String image;
   final bool isSelected;
   final Function(int?)? onSelect;
 
   const Card4({
     Key? key,
-    required this.word,
+    required this.image,
+    required this.title,
     this.isSelected = false, this.onSelect
   }) : super(key: key);
 
@@ -50,10 +51,10 @@ class _Card4State extends State<Card4> {
         child: Column(
           children: [
             Image.asset(
-              'assets/images/${widget.word.image}.png',
+              'assets/images/${widget.image}.png',
             ),
             Text(
-                widget.word.translation,
+                widget.title,
                 style: Theme.of(context).textTheme.bodyText1,
             ),
           ],
