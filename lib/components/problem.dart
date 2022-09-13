@@ -14,28 +14,24 @@ class _ProblemState extends State<Problem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 24),
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 0),
+      margin: const EdgeInsets.only(bottom: 6),
       child:
-      Row(
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                  'Выберите правильное изображение',
-                  style: Theme.of(context).textTheme.bodyText1
-              ),
-              Text(
-                  widget.answer,
-                  style: Theme.of(context).textTheme.headline2
-              )
-            ],
-          ),
-        ]
-      ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+                'Как перевести на русский',
+                style: Theme.of(context).textTheme.bodyText1
+            ),
+            const SizedBox(height: 3),
+            Text(
+                widget.answer,
+                style: Theme.of(context).textTheme.headline2
+            )
+          ],
+        ),
     );
   }
 }

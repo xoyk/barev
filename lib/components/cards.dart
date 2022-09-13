@@ -35,35 +35,37 @@ class _CardsState extends State<Cards> {
               buildCard(widget.words[0], 0),
             ],
           ),
-          const SizedBox(
-            height: 16,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              buildCard(widget.words[3], 3),
-              const SizedBox(
-                width: 12,
-              ),
-              buildCard(widget.words[2], 2),
-            ],
-          )
+          // const SizedBox(
+          //   height: 16,
+          // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     buildCard(widget.words[3], 3),
+          //     const SizedBox(
+          //       width: 12,
+          //     ),
+          //     buildCard(widget.words[2], 2),
+          //   ],
+          // )
         ],
     );
   }
 
   Widget buildCard(Word word, index) {
-    return InkWell(
-      onTap: () {
-        widget.manager.selectCard(index);
-      },
-      highlightColor: Colors.blue.withOpacity(0.4),
-      splashColor: Colors.grey.withOpacity(0.5),
-      child:
-      Card4(
-          title: word.original,
-          image: word.image,
-          isSelected: widget.manager.selectedCard == index
+    return Expanded(
+      child: InkWell(
+        onTap: () {
+          widget.manager.selectCard(index);
+        },
+        highlightColor: Colors.blue.withOpacity(0.4),
+        splashColor: Colors.grey.withOpacity(0.5),
+        child:
+        Card4(
+            title: word.translation,
+            image: word.image,
+            isSelected: widget.manager.selectedCard == index
+        ),
       ),
     );
   }

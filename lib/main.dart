@@ -20,12 +20,7 @@ class BarevDzes extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'BarevDzes',
       theme: theme,
-      home: MultiProvider(
-          providers: [
-            ChangeNotifierProvider(create: (context) => CardManager001())
-          ],
-          child: const FlowPage()
-      )
+      home: const FlowPage()
     );
   }
 }

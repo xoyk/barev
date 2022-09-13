@@ -49,6 +49,7 @@ class _Card4State extends State<Card4> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          mainAxisSize: MainAxisSize.max,
           children: [
             Image.asset(
               'assets/images/${widget.image}.png',

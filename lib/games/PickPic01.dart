@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:barev/components/problem.dart';
+import 'package:barev/config/const.dart';
 import 'package:barev/data/words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +26,7 @@ class _PickPic01State extends State<PickPic01> {
 
     words.shuffle();
 
-    activeWords = words.sublist(0, 4);
+    activeWords = words.sublist(0, 2);
 
     final rand = Random();
     rightAnswer = rand.nextInt(activeWords.length-1);
@@ -38,24 +39,46 @@ class _PickPic01State extends State<PickPic01> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        color: Colors.indigoAccent[600],
-        margin: const EdgeInsets.only(bottom: 30),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CardManager001())
+      ],
+      child: Center(
         child:
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Problem(answer: activeWords[rightAnswer].original),
-            Consumer<CardManager001>(
-              builder: (
-              BuildContext context, cardManager001, Widget? child
-              ) {
-                return Cards(words: activeWords, manager: cardManager001);
+        Consumer<CardManager001>(
+            builder: (
+                BuildContext context, cardManager001, Widget? child
+                ) {
+                cardManager001.setRightAnswer(rightAnswer);
+              return Container(
+                margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding: const EdgeInsets.only(top: 12, bottom: 12, left: 12, right: 12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(32.0),
+                  color: cardManager001.cardState == 'neutral' ? kLightGray : (cardManager001.rightAnswer == cardManager001.selectedCard ? kCorrect : kWrong),
+                ),
+                child:
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Problem(answer: activeWords[rightAnswer].original),
+                    // TODO Insert cards here
+                    Cards(words: activeWords, manager: cardManager001),
+                    Container(
+                      padding: const EdgeInsets.all(6.0),
+                      margin: const EdgeInsets.only(top: 6),
+                      child: const Text(
+                          'some shit',
+                          style: TextStyle(
+                            fontSize: 14.0,
+                          )
+                      ),
+                    )
+                  ],
+                ),
+              );
             })
-          ],
         ),
-      ),
     );
   }
 }
